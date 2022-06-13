@@ -14,7 +14,8 @@ class JobseekerController extends Controller
      */
     public function index()
     {
-        //
+        $jobseekers  = Jobseeker::all();
+        return view('viewposted', compact('jobseekers'));
     }
 
     public function seek()
@@ -30,7 +31,7 @@ class JobseekerController extends Controller
      */
     public function create()
     {
-        //
+        return view('userdash');
     }
 
     /**
@@ -41,7 +42,21 @@ class JobseekerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required',
+            'age' => 'required',
+            'address' => 'required',
+            'qualification' => 'required',
+            'gender' => 'required'
+        ]);
+
+
+        $Jobseeker = Jobseeker::create($data);
+        //  return view('userdash');
+        return redirect(url('dashboard')); // changing by fahad
+
     }
 
     /**
@@ -52,7 +67,7 @@ class JobseekerController extends Controller
      */
     public function show(Jobseeker $jobseeker)
     {
-        //
+        return view('viewposted', compact('jobseeker'));
     }
 
     /**

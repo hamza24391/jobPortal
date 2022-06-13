@@ -15,6 +15,14 @@ class CreateEmployersTable extends Migration
     {
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
+            $table->string('companyjob');
+            $table->string('companyname');
+            $table->string('companyemail');
+            $table->string('companyrequirement');
+            $table->string('companyaddress');
+            $table->string('companynumber');
+
+
             $table->timestamps();
         });
     }
