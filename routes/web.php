@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\JobseekerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,7 +43,13 @@ Route::group(['middleware' => ['auth']], function() {
 // for users
 Route::group(['middleware' => ['auth', 'role:user']], function() { 
     Route::get('/dashboard/viewposted', 'App\Http\Controllers\DashboardController@viewposted')->name('dashboard.viewposted');
+    // Route::get('/dashboard/createpost', 'App\Http\Controllers\DashboardController@createpost')->name('dashboard.createpost');
 });
+// Route::group(['middleware' => ['auth', 'role:user']], function() { 
+    
+// });
+
+
 
 
 
@@ -49,6 +57,15 @@ Route::group(['middleware' => ['auth', 'role:user']], function() {
 Route::group(['middleware' => ['auth', 'role:company']], function() { 
     Route::get('/dashboard/companyposts', 'App\Http\Controllers\DashboardController@companyposts')->name('dashboard.companyposts');
 });
+
+
+//jobseekers
+// Route::get('create-seeker', [JobseekerController::class, 'create']);
+Route::POST('store-seeker', [JobseekerController::class, 'store']);
+
+Route::get('index-seeker', [JobseekerController::class, 'index']);
+Route::get('show-seeker/{seeker}', [JobseekerController::class, 'show']);
+
 
 
 require __DIR__.'/auth.php';

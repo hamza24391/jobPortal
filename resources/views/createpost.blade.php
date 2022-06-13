@@ -1,25 +1,16 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard for user') }}
-        </h2>
-    </x-slot>
+<!-- @extends('layouts.main')
+@section("title",'Seek Job')
 
-    <div >
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div >
-                <!-- <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in as user!
-                </div> -->
+@section('contents')
 
 
-                <h1>Seek Job</h1>
+<h1>Seek Job</h1>
     <div class="form">
 <div class="left">
 
 
-<form action="store-seeker" method="POST" enctype="multipart/form-data">  
-    
+<form action="store-seeker" method="post" enctype="multipart/form-data">
+
 @csrf
   
   
@@ -66,10 +57,7 @@
 
 
 
-  
-  <button type="submit" class="submitbtnn">Post</button>
-
-
+  <button type="submit" class="submitbtn">Post</button>
 </form>
 </div>
 
@@ -83,6 +71,23 @@
 
 </div>
 
+@endsection -->
+
+
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard for user') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    You're logged in as user!
+                    And you are on the view posted page
+                </div>
             </div>
         </div>
     </div>
