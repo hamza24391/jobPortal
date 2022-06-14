@@ -2,6 +2,8 @@
 
 
 use App\Http\Controllers\JobseekerController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmployerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,9 +65,20 @@ Route::group(['middleware' => ['auth', 'role:company']], function() {
 // Route::get('create-seeker', [JobseekerController::class, 'create']);
 Route::POST('store-seeker', [JobseekerController::class, 'store']);
 
-Route::get('index-seeker', [JobseekerController::class, 'index']);
+Route::get('dashboard/index-seeker', [JobseekerController::class, 'index']);
 Route::get('show-seeker/{seeker}', [JobseekerController::class, 'show']);
 
+Route::get('destroy-seeker/{seeker}', [JobseekerController::class, 'destroy']);
 
+
+
+
+//employer
+Route::POST('store-employer', [EmployerController::class, 'store']);
+
+Route::get('dashboard/index-employer', [EmployerController::class, 'index']);
+Route::get('show-employer/{employer}', [EmployerController::class, 'show']);
+
+Route::get('destroy-employer/{employer}', [EmployerController::class, 'destroy']);
 
 require __DIR__.'/auth.php';

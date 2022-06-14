@@ -15,6 +15,11 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
+            $table->string('jname');
+            $table->string('jdes');
+            $table->string('jtype');
+            $table->unsignedBigInteger('employer_id');
+            $table->foreign('employer_id')->references('id')->on('employers');
             $table->timestamps();
         });
     }

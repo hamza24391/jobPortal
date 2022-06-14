@@ -14,8 +14,8 @@ class EmployerController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $employers  = Employer::all();
+        return view('viewpostedseek', compact('employers'));    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,8 +24,9 @@ class EmployerController extends Controller
      */
     public function create()
     {
-        //
+        return view('companydash');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +36,20 @@ class EmployerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'companyjob' => 'required',
+           
+            'companyname' => 'required',
+            'companyemail' => 'required',
+            'companyrequirement' => 'required',
+            'companyaddress' => 'required',
+            'companynumber' => 'required'
+        ]);
+
+
+        $Employer = Employer::create($data);
+        
+        return redirect(url('dashboard'));
     }
 
     /**
@@ -46,8 +60,7 @@ class EmployerController extends Controller
      */
     public function show(Employer $employer)
     {
-        //
-    }
+        return view('viewpostedseek', compact('employer'));    }
 
     /**
      * Show the form for editing the specified resource.
