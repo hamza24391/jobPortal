@@ -22,25 +22,25 @@ class DashboardController extends Controller
 
 
 
+
+
+
+
+public function viewposted()
+   {
+    return view('viewposted');
+   }
+
+   public function createpost()
+   {
+    return view('createpost');
+   }
+
+
+public function companyposts()
+   {
+    return view('companyposts');
+   }
+
+
 }
-
-
-
-// public function viewposted()
-//    {
-//     return view('viewposted');
-//    }
-
-//    public function createpost()
-//    {
-//     return view('createpost');
-//    }
-
-
-// public function companyposts()
-//    {
-//     return view('companyposts');
-//    }
-
-
-// }

@@ -15,7 +15,7 @@ class JobseekerController extends Controller
     public function index()
     {
         $jobseekers  = Jobseeker::all();
-        return view('viewposted', compact('jobseekers'));
+        return view('viewpostedemployer', compact('jobseekers'));
     }
 
     public function seek()
@@ -55,7 +55,7 @@ class JobseekerController extends Controller
 
         $Jobseeker = Jobseeker::create($data);
         //  return view('userdash');
-        return redirect(url('dashboard')); // changing by fahad
+        return redirect(url('dashboard')); 
 
     }
 
@@ -101,6 +101,9 @@ class JobseekerController extends Controller
      */
     public function destroy(Jobseeker $jobseeker)
     {
-        //
+        
+        $jobseeker->delete();
+        // return redirect(url('index-product'));
+    
     }
 }
